@@ -13,6 +13,12 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // Components installed with `shadcn add` (Componentry) are kept exactly as shipped,
+  // so they can be updated from the registry; relax the one rule they trip.
+  {
+    files: ["components/ui/**"],
+    rules: { "react-hooks/set-state-in-effect": "off" },
+  },
 ]);
 
 export default eslintConfig;
