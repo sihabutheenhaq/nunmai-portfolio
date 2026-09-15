@@ -209,7 +209,6 @@ export const en = {
     quote: "“Nunmai exists to turn AI from a standalone chatbot into an operational capability for the entire organization.”",
     // Portraits rotate in this order (photos are listed in components/Founder.tsx).
     people: [
-      { name: "Imran Khan", role: "Founder", photoAlt: "Portrait of Imran Khan, Founder of Nunmai" },
       { name: "Sihabutheen Haq", role: "Co-founder & CEO", photoAlt: "Portrait of Sihabutheen Haq, Co-founder and CEO of Nunmai" },
     ],
   },
@@ -404,7 +403,6 @@ export const en = {
       options: [
         // DRAFT
         { id: "private-cloud", name: "Private cloud", text: "Isolated for you" },
-        // DRAFT
         { id: "vpc", name: "Your VPC", text: "Inside your cloud account" },
         { id: "on-prem", name: "On-premise", text: "On your own servers" },
       ],
