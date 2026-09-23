@@ -13,7 +13,7 @@ export function Contact({ t }: { t: Dictionary }) {
               {cta.badge}
             </span>
             <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">{cta.title}</h2>
-            <p className="mt-5 text-[15px] font-medium leading-relaxed text-muted">{cta.text}</p>
+            <p className="mt-5 text-[15px] font-medium leading-relaxed text-muted sm:text-base">{cta.text}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
                 href={contact.pilotMailto}
