@@ -6,6 +6,7 @@ import { useInView } from "motion/react";
 import type { Dictionary } from "@/lib/dictionaries";
 import { useReducedMotionPref } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
+import { imranKhanPhoto } from "@/lib/imran-khan-photo";
 import { AsciiPortrait } from "./AsciiPortrait";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./SectionHeading";
@@ -13,8 +14,12 @@ import { Eyebrow } from "./SectionHeading";
 const ROTATE_MS = 2500;
 
 // Same order as `founder.people`. whitePoint lifts a grey studio background to blank space.
+// Imran's src is a base64 data URI (lib/imran-khan-photo.ts) because the checked-in
+// public/team/imran-khan.jpg was committed as base64 TEXT rather than decoded binary,
+// so the browser could never load it as an image. Haq's photo is a normal static file
+// and needs no such workaround.
 const PHOTOS = [
-  { src: "/team/imran-khan.jpg", whitePoint: 1 },
+  { src: imranKhanPhoto, whitePoint: 1 },
   { src: "/team/sihabutheen-haq.jpg", whitePoint: 0.8 },
 ];
 
