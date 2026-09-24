@@ -15,12 +15,9 @@ const ROTATE_MS = 2500;
 // Same order as `founder.people`. whitePoint lifts a grey studio background to blank space.
 const PHOTOS = [
   { src: "/team/sihabutheen-haq.jpg", whitePoint: 0.8 },
+  { src: "/team/abdalmohsen-almogel.jpg", whitePoint: 0.8 },
 ];
 
-/**
- * Founders' quote with soft ASCII-art portraits that rotate every 2.5 s.
- * Hovering the portrait shows the real photo and pauses; the name cards pick a person.
- */
 export function Founder({ t }: { t: Dictionary }) {
   const { founder } = t;
   const people = founder.people;
@@ -37,7 +34,6 @@ export function Founder({ t }: { t: Dictionary }) {
     return () => clearTimeout(id);
   }, [running, index, people.length]);
 
-  // Pause for keyboard users moving through the cards, not for mouse clicks.
   const onFocus = (e: FocusEvent<HTMLElement>) => {
     if (e.target.matches(":focus-visible")) setHold(true);
   };
@@ -47,7 +43,6 @@ export function Founder({ t }: { t: Dictionary }) {
       <Reveal>
         <figure className="grid overflow-hidden rounded-[2rem] border border-ink/10 bg-surface lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <div className="flex items-center justify-center border-b border-ink/10 p-8 sm:p-12 lg:border-b-0 lg:border-e">
-            {/* Compact portraits with softly faded edges, like a sketch */}
             <div
               onMouseEnter={() => setHold(true)}
               onMouseLeave={() => setHold(false)}
