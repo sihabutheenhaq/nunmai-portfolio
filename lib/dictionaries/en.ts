@@ -103,6 +103,7 @@ export const en = {
     label: "From our founders",
     quote: "\u201cNunmai exists to turn AI from a standalone chatbot into an operational capability for the entire organization.\u201d",
     people: [
+      { name: "Imran Khan", role: "Founder", photoAlt: "Portrait of Imran Khan, Founder of Nunmai" },
       { name: "Sihabutheen Haq", role: "Co-founder & CEO", photoAlt: "Portrait of Sihabutheen Haq, Co-founder and CEO of Nunmai" },
     ],
   },
