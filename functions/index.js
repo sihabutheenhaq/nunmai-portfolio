@@ -53,6 +53,8 @@ function fromAcceptLanguage(header) {
 }
 
 export function onRequest({ request }) {
+  // OUTAGE DRILL 2026-09-25: deliberate failure to test the Watching incident flow. Revert this commit.
+  return new Response("maintenance", { status: 503 });
   const url = new URL(request.url);
   const locale =
     fromCookie(request.headers.get("cookie")) ||
