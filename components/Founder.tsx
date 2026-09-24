@@ -15,7 +15,6 @@ const ROTATE_MS = 2500;
 // Same order as `founder.people`. whitePoint lifts a grey studio background to blank space.
 const PHOTOS = [
   { src: "/team/sihabutheen-haq.jpg", whitePoint: 0.8 },
-  { src: "/team/abdalmohsen-almogel.jpg", whitePoint: 0.8 },
 ];
 
 /**
