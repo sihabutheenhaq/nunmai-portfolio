@@ -210,6 +210,7 @@ export const en = {
     // Portraits rotate in this order (photos are listed in components/Founder.tsx).
     people: [
       { name: "Sihabutheen Haq", role: "Co-founder & CEO", photoAlt: "Portrait of Sihabutheen Haq, Co-founder and CEO of Nunmai" },
+      { name: "Abdalmohsen Almogel", role: "Founder", photoAlt: "Portrait of Abdalmohsen Almogel, Founder of Nunmai" },
     ],
   },
 
