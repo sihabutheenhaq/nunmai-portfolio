@@ -69,7 +69,7 @@ export const en = {
   contact: {
     email: "ai@nunmai.in",
     phone: "+91 97919 77903",
-    phoneHref: "tel:+919791977903",
+    phoneHref: "tel:+919****7903",
     portal: "https://platform.nunmai.in/",
     location: "Kadayanallur, India",
     company: "Nunmai Private Limited",
@@ -210,6 +210,7 @@ export const en = {
     // Portraits rotate in this order (photos are listed in components/Founder.tsx).
     people: [
       { name: "Sihabutheen Haq", role: "Co-founder & CEO", photoAlt: "Portrait of Sihabutheen Haq, Co-founder and CEO of Nunmai" },
+      { name: "Abdalmohsen Almogel", role: "Founder", photoAlt: "Portrait of Abdalmohsen Almogel, Founder of Nunmai" },
     ],
   },
 
