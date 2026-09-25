@@ -5,19 +5,18 @@ import { useInView } from "motion/react";
 import type { Dictionary } from "@/lib/dictionaries";
 import { useReducedMotionPref } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
-import { imranKhanPhoto } from "@/lib/imran-khan-photo";
-import { AsciiPortrait } from "./AsciiPortrait";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./SectionHeading";
 const ROTATE_MS = 2500;
+const ORDER = [0, 2, 1];
 const PHOTOS = [
-  { src: imranKhanPhoto, whitePoint: 1 },
-  { src: "/team/sihabutheen-haq.jpg", whitePoint: 0.8 },
-  { src: "/team/samsul-hameed.jpg", whitePoint: 0.8 },
+  "/team/imran-khan.jpg",
+  "/team/samsul-hameed.jpg",
+  "/team/sihabutheen-haq.jpg",
 ];
 export function Founder({ t }: { t: Dictionary }) {
   const { founder } = t;
-  const people = founder.people;
+  const people = ORDER.map((i) => founder.people[i]);
   const [index, setIndex] = useState(0);
   const [hold, setHold] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -34,10 +33,9 @@ export function Founder({ t }: { t: Dictionary }) {
     <section ref={ref} id="founder" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16">
       <Reveal><figure className="grid overflow-hidden rounded-[2rem] border border-ink/10 bg-surface lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="flex items-center justify-center border-b border-ink/10 p-8 sm:p-12 lg:border-b-0 lg:border-e">
-          <div onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} className="group relative aspect-[4/5] w-full max-w-[19rem] [mask-image:radial-gradient(ellipse_72%_78%_at_50%_42%,#000_55%,transparent_100%)]">
+          <div onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} className="group relative aspect-[4/5] w-full max-w-[19rem] [mask-image:linear-gradient(to_bottom,#000_88%,transparent_100%)]">
             {people.map((p, i) => <div key={p.name} aria-hidden={i !== index} className={cn("absolute inset-0 transition-opacity duration-700", i === index ? "opacity-100" : "opacity-0")}>
-              <Image src={PHOTOS[i].src} alt={p.photoAlt} fill sizes="19rem" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-              <AsciiPortrait src={PHOTOS[i].src} whitePoint={PHOTOS[i].whitePoint} className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-0" />
+              <Image src={PHOTOS[i]} alt={p.photoAlt} fill sizes="19rem" className="object-cover" />
             </div>)}
           </div>
         </div>
