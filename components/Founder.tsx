@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./SectionHeading";
 const ROTATE_MS = 2500;
+const ORDER = [0, 2, 1];
 const PHOTOS = [
   "/team/imran-khan.jpg",
   "/team/samsul-hameed.jpg",
@@ -15,7 +16,7 @@ const PHOTOS = [
 ];
 export function Founder({ t }: { t: Dictionary }) {
   const { founder } = t;
-  const people = founder.people;
+  const people = ORDER.map((i) => founder.people[i]);
   const [index, setIndex] = useState(0);
   const [hold, setHold] = useState(false);
   const ref = useRef<HTMLElement>(null);
