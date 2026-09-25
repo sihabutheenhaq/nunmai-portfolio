@@ -10,11 +10,13 @@ import { Reveal } from "./Reveal";
 import { Eyebrow } from "./SectionHeading";
 
 const ROTATE_MS = 2500;
-const ORDER = [0, 2, 1];
+const ORDER = [2, 1];
 const PHOTO_BY_NAME: Record<string, string> = {
   "Imran Khan": "/team/imran-khan.jpg",
   "Samsul Hameed.S.A": "/team/samsul-hameed.jpg",
   "Sihabutheen Haq": "/team/sihabutheen-haq.jpg",
+  "عمران خان": "/team/imran-khan.jpg",
+  "شهاب الدين حق": "/team/sihabutheen-haq.jpg",
 };
 
 /** Founders' quote with rotating portraits. Hovering the portrait pauses rotation. */
