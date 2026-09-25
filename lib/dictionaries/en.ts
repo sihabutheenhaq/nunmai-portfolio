@@ -105,6 +105,7 @@ export const en = {
     people: [
       { name: "Imran Khan", role: "Founder", photoAlt: "Portrait of Imran Khan, Founder of Nunmai" },
       { name: "Sihabutheen Haq", role: "Co-founder & CEO", photoAlt: "Portrait of Sihabutheen Haq, Co-founder and CEO of Nunmai" },
+      { name: "Samsul Hameed.S.A", role: "Founder", photoAlt: "Portrait of Samsul Hameed.S.A, Founder of Nunmai" },
     ],
   },
   explainer: { title: "Nunmai Engine in 40 seconds", duration: "0:41", video: "/video/nunmai-engine-explainer.mp4", poster: "/video/nunmai-engine-explainer-poster.jpg" },
