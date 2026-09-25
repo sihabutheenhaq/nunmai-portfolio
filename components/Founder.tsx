@@ -6,20 +6,18 @@ import { useInView } from "motion/react";
 import type { Dictionary } from "@/lib/dictionaries";
 import { useReducedMotionPref } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
+import { AsciiPortrait } from "./AsciiPortrait";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./SectionHeading";
 
 const ROTATE_MS = 2500;
 const ORDER = [2, 1];
-const PHOTO_BY_NAME: Record<string, string> = {
-  "Imran Khan": "/team/imran-khan.jpg",
-  "Samsul Hameed.S.A": "/team/samsul-hameed.jpg",
-  "Sihabutheen Haq": "/team/sihabutheen-haq.jpg",
-  "عمران خان": "/team/imran-khan.jpg",
-  "شهاب الدين حق": "/team/sihabutheen-haq.jpg",
+const PHOTO_BY_NAME: Record<string, { src: string; whitePoint: number }> = {
+  "Samsul Hameed.S.A": { src: "/team/samsul-hameed.jpg", whitePoint: 1 },
+  "Sihabutheen Haq": { src: "/team/sihabutheen-haq.jpg", whitePoint: 0.8 },
 };
 
-/** Founders' quote with rotating portraits. Hovering the portrait pauses rotation. */
+/** Founder portraits rotate; hovering reveals the photo over the ASCII cover and pauses rotation. */
 export function Founder({ t }: { t: Dictionary }) {
   const { founder } = t;
   const people = ORDER.map((i) => founder.people[i]).filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -48,7 +46,7 @@ export function Founder({ t }: { t: Dictionary }) {
             <div
               onMouseEnter={() => setHold(true)}
               onMouseLeave={() => setHold(false)}
-              className="group relative aspect-[4/5] w-full max-w-[19rem] [mask-image:linear-gradient(to_bottom,#000_88%,transparent_100%)]"
+              className="group relative aspect-[4/5] w-full max-w-[19rem] [mask-image:radial-gradient(ellipse_72%_78%_at_50%_42%,#000_55%,transparent_100%)]"
             >
               {people.map((p, i) => (
                 <div
@@ -57,19 +55,16 @@ export function Founder({ t }: { t: Dictionary }) {
                   className={cn("absolute inset-0 transition-opacity duration-700", i === index ? "opacity-100" : "opacity-0")}
                 >
                   <Image
-                    src={PHOTO_BY_NAME[p.name]}
+                    src={PHOTO_BY_NAME[p.name].src}
                     alt={p.photoAlt}
                     fill
                     sizes="19rem"
                     className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                   />
-                  <Image
-                    src={PHOTO_BY_NAME[p.name]}
-                    alt=""
-                    aria-hidden="true"
-                    fill
-                    sizes="19rem"
-                    className="object-cover opacity-100 transition-opacity duration-700 group-hover:opacity-0"
+                  <AsciiPortrait
+                    src={PHOTO_BY_NAME[p.name].src}
+                    whitePoint={PHOTO_BY_NAME[p.name].whitePoint}
+                    className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-0"
                   />
                 </div>
               ))}
