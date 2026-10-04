@@ -43,7 +43,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Faq t={t} />
         <Contact t={t} />
       </main>
-      <Footer t={t} />
+      <Footer t={t} locale={lang} />
     </>
   );
 }

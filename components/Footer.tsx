@@ -9,7 +9,7 @@ const FOOTER_BG = "#0b2413";
 // Brand greens, deep to bright, for the pixel trail on the dark footer.
 const pixelColors = ["#3f6b22", "#6e9938", "#96c35d", "#c8ee93"];
 
-export function Footer({ t }: { t: Dictionary }) {
+export function Footer({ t, locale = "en" }: { t: Dictionary; locale?: string }) {
   const { footer, contact, platform, ui } = t;
   const columns = [
     {
@@ -67,7 +67,10 @@ export function Footer({ t }: { t: Dictionary }) {
 
         <div className="mt-20 flex flex-col-reverse items-start justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
           <p className="text-sm font-medium text-white/50">
-            © {new Date().getFullYear()} {contact.company}. {footer.rights}
+            © {new Date().getFullYear()} {contact.company}. {footer.rights}{" "}
+            <a href={`/${locale}/privacy`} className="underline-offset-4 transition-colors hover:text-brand-light hover:underline">{footer.privacyLink}</a>
+            {" · "}
+            <a href={`/${locale}/terms`} className="underline-offset-4 transition-colors hover:text-brand-light hover:underline">{footer.termsLink}</a>
           </p>
           <a
             href={contact.portal}
